@@ -10,14 +10,14 @@ interface JoinRoomType {
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 const JoinRoom = ({ show, onClose, socket }: JoinRoomType) => {
-  console.log("Kenil");
-  
   const roomRef = useRef<HTMLInputElement>(null);
   // const {room} = useSelector((state: RootState) => state.webSocket)
   const dispatch = useDispatch()
   if (!show) return null;
 
   const joinTheRoom = () => {
+    console.log("join");
+    
     const roomId = parseInt(roomRef.current?.value || "0");
     console.log(JSON.stringify({type: "join", room: roomId}));
     
